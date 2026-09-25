@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="bn-BD">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050504">
+  <title>THS Landing Page Conversion Journey</title>
+  <style>
+    html { color-scheme: dark; background: #050504; }
+    body { margin: 0; padding: clamp(12px, 3vw, 34px); background: #050504; }
+  </style>
+</head>
+<body>
+<div id="ths-conversion-map">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Tiro+Bangla:ital@0;1&display=swap');
+
+    #ths-conversion-map {
+      --gold: #E4C167;
+      --gold-soft: rgba(228, 193, 103, .12);
+      --gold-line: rgba(228, 193, 103, .24);
+      --ink: #050504;
+      --surface: #0b0a08;
+      --surface-raised: #11100d;
+      --text: #f4f0e6;
+      --muted: #aaa69c;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      padding: clamp(22px, 4vw, 54px);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(228,193,103,.14), transparent 25%),
+        radial-gradient(circle at 92% 34%, rgba(228,193,103,.09), transparent 24%),
+        radial-gradient(circle at 32% 92%, rgba(228,193,103,.07), transparent 27%),
+        linear-gradient(145deg, var(--ink), var(--surface));
+      color: var(--text);
+      font-family: Inter, sans-serif;
+      box-shadow: inset 0 1px rgba(228,193,103,.14), 0 24px 90px rgba(0,0,0,.42);
+    }
+
+    #ths-conversion-map::before,
+    #ths-conversion-map::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 360px;
+      height: 360px;
+      border: 1px solid rgba(228,193,103,.12);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    #ths-conversion-map::before { top: -220px; right: -90px; }
+    #ths-conversion-map::after { bottom: -260px; left: -120px; }
+
+    #ths-conversion-map * { box-sizing: border-box; }
+
+    #ths-conversion-map .eyebrow {
+      margin: 0 0 10px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+
+    #ths-conversion-map h1 {
+      max-width: 760px;
+      margin: 0;
+      font-family: "Tiro Bangla", serif;
+      font-size: clamp(31px, 5vw, 58px);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -.025em;
+    }
+
+    #ths-conversion-map .intro {
+      max-width: 690px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-family: "Tiro Bangla", serif;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    #ths-conversion-map .phase-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 34px 0 42px;
+    }
+
+    #ths-conversion-map .phase-chip {
+      min-width: 0;
+      padding: 14px 16px;
+      border: 1px solid var(--gold-line);
+      border-radius: 14px;
+      background: rgba(228,193,103,.035);
+    }
+
+    #ths-conversion-map .phase-chip small {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    #ths-conversion-map .phase-chip strong {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    #ths-conversion-map .phase {
+      position: relative;
+      margin-top: 44px;
+    }
+
+    #ths-conversion-map .phase-heading {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    #ths-conversion-map .phase-index {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+      border: 1px solid var(--gold-line);
+      border-radius: 50%;
+      color: var(--gold);
+      background: var(--gold-soft);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    #ths-conversion-map .phase-heading h2 {
+      margin: 0;
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 600;
+    }
+
+    #ths-conversion-map .phase-heading p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-family: "Tiro Bangla", serif;
+      font-size: 14px;
+    }
+
+    #ths-conversion-map .steps {
+      position: relative;
+      display: grid;
+      gap: 11px;
+      margin-left: 18px;
+      padding-left: 30px;
+    }
+
+    #ths-conversion-map .steps::before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      bottom: 2px;
+      left: 0;
+      width: 1px;
+      background: linear-gradient(var(--gold-line), rgba(228,193,103,.04));
+    }
+
+    #ths-conversion-map details {
+      position: relative;
+      border: 1px solid rgba(228,193,103,.13);
+      border-radius: 16px;
+      background: rgba(17,16,13,.72);
+      transition: border-color .25s ease, background .25s ease, transform .25s ease, box-shadow .25s ease;
+    }
+
+    #ths-conversion-map details::before {
+      content: "";
+      position: absolute;
+      top: 25px;
+      left: -35px;
+      width: 9px;
+      height: 9px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      background: var(--ink);
+      box-shadow: 0 0 0 5px rgba(228,193,103,.05);
+    }
+
+    #ths-conversion-map details:hover {
+      transform: translateY(-2px);
+      border-color: rgba(228,193,103,.34);
+    }
+
+    #ths-conversion-map details[open] {
+      border-color: rgba(228,193,103,.42);
+      background: linear-gradient(145deg, rgba(228,193,103,.085), rgba(17,16,13,.82));
+      box-shadow: 0 14px 40px rgba(0,0,0,.24);
+    }
+
+    #ths-conversion-map summary {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr) 24px;
+      gap: 12px;
+      align-items: center;
+      min-height: 64px;
+      padding: 12px 16px;
+      list-style: none;
+      cursor: pointer;
+    }
+
+    #ths-conversion-map summary::-webkit-details-marker { display: none; }
+
+    #ths-conversion-map .step-no {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+    }
+
+    #ths-conversion-map .step-title {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    #ths-conversion-map .toggle {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(228,193,103,.08);
+    }
+
+    #ths-conversion-map .toggle::before,
+    #ths-conversion-map .toggle::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 1px;
+      background: var(--gold);
+      transform: translate(-50%, -50%);
+      transition: transform .2s ease;
+    }
+
+    #ths-conversion-map .toggle::after { transform: translate(-50%, -50%) rotate(90deg); }
+    #ths-conversion-map details[open] .toggle::after { transform: translate(-50%, -50%) rotate(0); }
+
+    #ths-conversion-map .detail-body {
+      padding: 0 18px 18px 70px;
+      color: var(--muted);
+      font-family: "Tiro Bangla", serif;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    #ths-conversion-map .subgrid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    #ths-conversion-map .subgrid span {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(228,193,103,.075);
+      color: var(--text);
+      font-family: Inter, sans-serif;
+      font-size: 11px;
+      line-height: 1;
+    }
+
+    #ths-conversion-map .outcome {
+      margin-top: 44px;
+      padding: 22px;
+      border: 1px solid var(--gold-line);
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(228,193,103,.11), rgba(228,193,103,.025));
+      text-align: center;
+    }
+
+    #ths-conversion-map .outcome small {
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    #ths-conversion-map .outcome p {
+      margin: 8px auto 0;
+      max-width: 720px;
+      font-family: "Tiro Bangla", serif;
+      font-size: clamp(18px, 3vw, 25px);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 680px) {
+      #ths-conversion-map { padding: 24px 16px; border-radius: 18px; }
+      #ths-conversion-map .phase-strip { grid-template-columns: 1fr; margin: 26px 0 34px; }
+      #ths-conversion-map .phase-chip strong { white-space: normal; }
+      #ths-conversion-map .steps { margin-left: 6px; padding-left: 20px; }
+      #ths-conversion-map details::before { left: -25px; }
+      #ths-conversion-map summary { grid-template-columns: 34px minmax(0,1fr) 22px; padding: 11px 13px; }
+      #ths-conversion-map .detail-body { padding: 0 14px 16px 59px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #ths-conversion-map details { transition: none; }
+    }
+  </style>
+
+  <header>
+    <p class="eyebrow">The Hidden Shelf · Landing Page Architecture</p>
+    <h1>From Curiosity to Confident Purchase</h1>
+    <p class="intro">প্রথমে বইগুলোর প্রতি প্রয়োজন তৈরি হবে, এরপর বদলাবে পড়ার বিষয়ে মানুষের পুরোনো ধারণা, আর সবশেষে সে নিজের জন্য সঠিক অ্যাক্সেস বেছে নেবে।</p>
+  </header>
+
+  <nav class="phase-strip" aria-label="Conversion phases">
+    <div class="phase-chip"><small>Phase 01 · Sections 01–06</small><strong>Create Desire</strong></div>
+    <div class="phase-chip"><small>Phase 02 · Sections 07–09</small><strong>Shift Perspective</strong></div>
+    <div class="phase-chip"><small>Phase 03 · Sections 10–14</small><strong>Build Trust & Convert</strong></div>
+  </nav>
+
+  <section class="phase" aria-labelledby="desire-title">
+    <div class="phase-heading">
+      <span class="phase-index">01</span>
+      <div><h2 id="desire-title">Create Desire</h2><p>বইগুলো পড়া কেন জরুরি—সেই সিদ্ধান্ত visitor-এর নিজের ভেতরেই তৈরি হবে।</p></div>
+    </div>
+    <div class="steps">
+      <details><summary><span class="step-no">01</span><span class="step-title">Header</span><span class="toggle" aria-hidden="true"></span></summary><div class="detail-body">Minimal entry point.<div class="subgrid"><span>Logo</span><span>Single Action</span><span>No Navigation Menu</span></div></div></details>
+      <details><summary><span class="step-no">02</span><span class="step-title">Hero</span><span class="toggle" aria-hidden="true"></span></summary><div class="detail-body">The first realisation and the beginning of the story.<div class="subgrid"><span>Core Hook</span><span>Book Visual</span><span>Primary Action</span></div></div></details>
+      <details><summary><span class="step-no">03</span><span class="step-title">Problem</span><span class="toggle" aria-hidden="true"></span></summary><div class="detail-body">Visitor নিজের বাস্তব জীবনের সমস্যাগুলো চিনতে শুরু করবে।<div class="subgrid"><span>People</span><span>Power</span><span>Decision</span><span>Manipulation</span></div></div></details>
+      <details><summary><span class="step-no">04</span><span class="step-title">Solution</span><span class="toggle" aria-hidden="true"></span></summary><div class="detail-body">তিনটি বইকে সমস্যাগুলো বোঝার solution হিসেবে introduce করা হবে।<div class="subgrid"><span>The Prince</span><span>The Art of War</span><span>48 Laws of Power</span></div></div></details>
+      <details><summary><span class="step-no">05</span><span class="step-title">Complete Journey</span><span class="toggle" aria-hidden="true"></span></summary><div class="detail-body">তিনটি বই আলাদা হলেও কীভাবে একসঙ্গে একটি complete learning journey তৈরি করে।<div class="subgrid"><span>Understand Power</span><span>Read Situations</span><span>Understand People</span></div></div></details>
+      <details><summary><span class="step-no">06</span><span class="step-title">Extra Benefit</span><span class="toggle" aria-hidden="true"></span></summary><div class="detail-body">মূল সমস্যার সমাধানের বাইরে বইগুলো থেকে পাওয়া অতিরিক্ত benefit।<div class="subgrid"><span>Decision</span><span>Negotiation</span><span>Leadership</span><span>Self-control</span><span>Strategic Thinking</span></div></div></details>
+    </div>
+  </section>
+
+  <section class="phase" aria-labelledby="perspective-title">
+    <div class="phase-heading">
+      <span class="phase-index">02</span>
+      <div><h2 id="perspective-title">Shift Perspective</h2><p>Visitor শুধু বই নয়—নতুন ধরনের reading experience দেখতে শুরু করবে।</p></div>
+    </div>
+    <div class="steps">
+      <details><summary><span class="step-no">07</span><span class="step-title">Why the THS Edition Is Different</span><span class="toggle" aria-hidden="true"></span></summary><div class="detail-body">প্রতিটি core feature explain করার পর visitor নিজে modal-এর মাধ্যমে experience করবে।<div class="subgrid"><span>Easy Bangla Translation</span><span>Chapter Analysis</span><span>Keyword Explanation</span><span>Audiobook</span><span>Private Community</span><span>Interactive Preview</span></div></div></details>
+      <details open><summary><span class="step-no">08</span><span class="step-title">Beyond Traditional Reading</span><span class="toggle" aria-hidden="true"></span></summary><div class="detail-body">Hardcopy-কে ছোট না করে দেখানো হবে—THS edition কীভাবে reader-এর সঙ্গে grow করতে পারে।<div class="subgrid"><span>Font Control</span><span>Theme Control</span><span>Highlight</span><span>Bookmark</span><span>Saved Progress</span><span>Continuous Updates</span><span>Cross-device Access</span><span>Read & Listen</span></div></div></details>
+      <details><summary><span class="step-no">09</span><span class="step-title">Beyond the Books — One Connected Ecosystem</span><span class="toggle" aria-hidden="true"></span></summary><div class="detail-body">বইয়ের বাইরের সম্পূর্ণ value system একটি connected experience হিসেবে দেখানো হবে।<div class="subgrid"><span>Magazine</span><span>Affiliate & Learning</span><span>THS Pro</span><span>One Connected App</span></div></div></details>
+    </div>
+  </section>
+
+  <section class="phase" aria-labelledby="conversion-title">
+    <div class="phase-heading">
+      <span class="phase-index">03</span>
+      <div><h2 id="conversion-title">Build Trust & Convert</h2><p>Future, proof, value এবং guarantee—সবকিছু মিলিয়ে purchase decision complete হবে।</p></div>
+    </div>
+    <div class="steps">
+      <details><summary><span class="step-no">10</span><span class="step-title">Our Future Vision</span><span class="toggle" aria-hidden="true"></span></summary><div class="detail-body">THS library এবং ecosystem ভবিষ্যতে কোথায় যাবে।<div class="subgrid"><span>Growing Library</span><span>New Books</span><span>New Learning Experiences</span></div></div></details>
+      <details><summary><span class="step-no">11</span><span class="step-title">Social Proof</span><span class="toggle" aria-hidden="true"></span></summary><div class="detail-body">Real customer এবং real product experience-এর মাধ্যমে trust তৈরি হবে।<div class="subgrid"><span>Customer Feedback</span><span>Reader Experience</span><span>App Screenshots</span><span>Audio Experience</span><span>Verified Purchase</span></div></div></details>
+      <details open><summary><span class="step-no">12</span><span class="step-title">Choose Your Access</span><span class="toggle" aria-hidden="true"></span></summary><div class="detail-body">Full Collection থাকবে primary; individual books থাকবে secondary choice হিসেবে।<div class="subgrid"><span>Full Collection</span><span>Individual Books</span><span>Premium Summaries</span><span>1 Month THS Pro</span><span>Value Breakdown</span><span>24-Hour Guarantee</span></div></div></details>
+      <details><summary><span class="step-no">13</span><span class="step-title">Final Questions</span><span class="toggle" aria-hidden="true"></span></summary><div class="detail-body">Purchase-এর আগে visitor-এর শেষ প্রশ্ন ও দ্বিধাগুলোর উত্তর।<div class="subgrid"><span>Access</span><span>Payment</span><span>Devices</span><span>Refund</span><span>Support</span></div></div></details>
+      <details><summary><span class="step-no">14</span><span class="step-title">Footer</span><span class="toggle" aria-hidden="true"></span></summary><div class="detail-body">শেষ trust layer এবং প্রয়োজনীয় links.<div class="subgrid"><span>Privacy</span><span>Terms</span><span>Refund Policy</span><span>Contact</span><span>WhatsApp</span></div></div></details>
+    </div>
+  </section>
+
+  <footer class="outcome">
+    <small>Final Conversion Logic</small>
+    <p>Books create the desire → THS changes the perspective → Proof and value complete the purchase decision.</p>
+  </footer>
+</div>
+</body>
+</html>
